@@ -12,7 +12,7 @@ namespace jun1
         static void Main(string[] args)
         {
             string[] text = {"(", "(", "(", "(", ")", ")", "(", ")", ")", ")"};
-            int[] values = new int[text.Length];
+            int[] depthValues = new int[text.Length];
             int maxDepth;
             string rightBracket = ")";
             string leftBracket = "(";
@@ -24,17 +24,17 @@ namespace jun1
                 if (text[i] == leftBracket)
                 {
                     result++;
-                    values[i] = result;
+                    depthValues[i] = result;
                 }
 
                 else if (text[i] == rightBracket)
                 {
                     result--;
-                    values[i] = result;
+                    depthValues[i] = result;
                 }
             }
 
-            maxDepth = values.Max();
+            maxDepth = depthValues.Max();
 
             if (result == rightResult)
             {
