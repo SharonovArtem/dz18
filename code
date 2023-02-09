@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace jun1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] text = {"(", "(", "(", "(", ")", ")", "(", ")", ")", ")"};
+            int[] values = new int[text.Length];
+            int maxDepth;
+            string rightBracket = ")";
+            string leftBracket = "(";
+            int result = 0;
+            int rightResult = 0;
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] == leftBracket)
+                {
+                    result++;
+                    values[i] = result;
+                }
+
+                else if (text[i] == rightBracket)
+                {
+                    result--;
+                    values[i] = result;
+                }
+            }
+
+            maxDepth = values.Max();
+
+            if (result == rightResult)
+            {
+                Console.WriteLine("Строка верная");
+                Console.WriteLine("Максимальная глубина: " + maxDepth);
+            }
+            else
+            {
+                Console.WriteLine("Строка неверная");
+            }
+        }
+    }
+}
