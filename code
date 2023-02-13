@@ -11,26 +11,27 @@ namespace jun1
     {
         static void Main(string[] args)
         {
-            string[] text = {"(", "(", "(", "(", ")", ")", "(", ")", ")", ")"};
-            int[] depthValues = new int[text.Length];
+            string text =  "(((())()))" ;
+            string depthValues = "";
             int maxDepth;
-            string rightBracket = ")";
-            string leftBracket = "(";
+            char rightBracket = ')';
+            char leftBracket = '(';
             int result = 0;
             int rightResult = 0;
 
-            for (int i = 0; i < text.Length; i++)
+            foreach (char bracket in text)
             {
-                if (text[i] == leftBracket)
+                if (bracket == leftBracket)
                 {
                     result++;
-                    depthValues[i] = result;
+                    depthValues += Convert.ToString(result);
+                    Console.WriteLine(depthValues);
                 }
-
-                else if (text[i] == rightBracket)
+                else if (bracket == rightBracket)
                 {
                     result--;
-                    depthValues[i] = result;
+                    depthValues += Convert.ToString(result);
+                    Console.WriteLine(depthValues);
                 }
             }
 
