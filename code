@@ -26,23 +26,23 @@ namespace jun1
                 if (brackets[i] == leftBracket)
                 {
                     stringCheck++;
-                    depth++;
+                    tempDepth++;
 
-                    if (depth > tempDepth)
+                    if (tempDepth > depth)
                     {
-                        tempDepth = depth;
+                        depth = tempDepth;
                     }
                 }
                 else if (brackets[i] == rightBracket)
                 {
                     stringCheck--;
-                    depth--;
+                    tempDepth--;
                 }
             }
 
             if (stringCheck == rightStringCheck)
             {
-                Console.WriteLine("Строка верная, максимальная вложенность: " + tempDepth);
+                Console.WriteLine("Строка верная, максимальная вложенность: " + depth);
             }
             else
             {
