@@ -13,7 +13,7 @@ namespace jun1
     {
         static void Main(string[] args)
         {
-            string brackets = "(((())(((((())))))()))";
+            string brackets = "(((())(()()()()()()()((())))()))";
             char leftBracket = '(';
             char rightBracket = ')';
             int rightStringCheck = 0;
@@ -28,15 +28,15 @@ namespace jun1
                     stringCheck++;
                     depth++;
 
-                    if (brackets[i + 1] == rightBracket && brackets[i] ==leftBracket && i + 1 != brackets.Length + 1 && depth > tempDepth)
+                    if (depth > tempDepth)
                     {
                         tempDepth = depth;
-                        depth = 0;
                     }
                 }
-                else if(brackets[i] == rightBracket)
+                else if (brackets[i] == rightBracket)
                 {
                     stringCheck--;
+                    depth--;
                 }
             }
 
